@@ -16,11 +16,29 @@ class TODO:
         
         print({sys.stdout.write(GREEN + f"Task '{task}' has been added to the list! " + RESET)})
     
+    def viewTasks(self):
+        if not self.todos:
+            print({sys.stdout.write(RED + f"TODO LIst is Empty! " + RESET)})
+        else:
+            print("Your Tasks!")
+            for i, task in enumerate(self.todos):
+                print({sys.stdout.write(GREEN + f"Task {i}. {task} " + RESET)})
+
     def popTask(self):
-        pass
+        self.viewTasks()
+        
+        try:
+            delete_task = int(input("Enter a number to be deleted: "))
+            if delete_task >= 0 and delete_task < len(delete_task):
+                self.todos.pop(delete_task)
+            else:
+                print(f"Task {delete_task} NOT FOUND")
+                print({sys.stdout.write(GREEN + f"Task '{delete_task}' has been deleted! " + RESET)})
+        except:
+            print(f"{sys.stdout.write(RED + "Error: Invalid Input! " + RESET)}")
+         
     
-    def viewTask(self):
-        pass
+    
     
     def closeApp(self):
         print("___________BYE___________")
@@ -52,7 +70,7 @@ if __name__ == '__main__':
         if choice == 1:
             obj_ToDo.appendTask()
         elif choice == 2:
-            obj_ToDo.viewTask()
+            obj_ToDo.viewTasks()
         elif choice == 3:
             obj_ToDo.popTask()
         elif choice == 4:
