@@ -1,15 +1,20 @@
 import sys
 
-# variable to make error messages.
+# variable to make colors for the messages.
 RED = "\033[31m"
+GREEN = "\033[32m"
 RESET = "\033[0m"
 
+# Class implementation of the TODO List Application.
 class TODO:
     def __init__(self):
         self.todos = []
 
     def appendTask(self):
-        pass
+        task = input("Enter a task: ")
+        self.todos.append(task)
+        
+        print({sys.stdout.write(GREEN + f"Task '{task}' has been added to the list! " + RESET)})
     
     def popTask(self):
         pass
@@ -19,6 +24,7 @@ class TODO:
     
     def closeApp(self):
         print("___________BYE___________")
+        print()
         exit()
         
 
