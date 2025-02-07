@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Task</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <title>Append Task</title>
+    </head>
+    <body class="bg-light">
+        <div class="container mt-5">
+            <div class="card shadow p-4">
+                <h1 class="text-center mb-4">Append New Task</h1>
+                <form method="post" class="d-flex justify-content-center">
+                    {% csrf_token %}
+                    <input type="text" name="title" placeholder="Enter Task Name" class="form-control w-50 me-2" required>
+                    <button type="submit" class="btn btn-success">➕ Append Task</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
