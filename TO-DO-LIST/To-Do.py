@@ -14,28 +14,31 @@ class TODO:
         task = input("Enter a task: ")
         self.todos.append(task)
         
-        print({sys.stdout.write(GREEN + f"Task '{task}' has been added to the list! " + RESET)})
+        sys.stdout.write(GREEN + f"Task '{task}' has been added to the list! " + RESET)
     
     def viewTasks(self):
         if not self.todos:
-            print({sys.stdout.write(RED + f"TODO LIst is Empty! " + RESET)})
+            sys.stdout.write(RED + f"TODO LIst is Empty! " + RESET)
         else:
-            print("Your Tasks!")
+            print("Your Tasks!\n")
+            print("________________________\n")
             for i, task in enumerate(self.todos):
-                print({sys.stdout.write(GREEN + f"Task {i}. {task} " + RESET)})
+                sys.stdout.write(GREEN + f"Task {i}. {task} \n" + RESET)
+            print("________________________\n")
 
     def popTask(self):
         self.viewTasks()
         
         try:
             delete_task = int(input("Enter a number to be deleted: "))
-            if delete_task >= 0 and delete_task < len(delete_task):
-                self.todos.pop(delete_task)
+            if 0 <= delete_task < len(self.todos):
+                removed_task = self.todos.pop(delete_task)
+                sys.stdout.write(GREEN + f"Task '{removed_task}' has been deleted!\n" + RESET)
             else:
                 print(f"Task {delete_task} NOT FOUND")
-                print({sys.stdout.write(GREEN + f"Task '{delete_task}' has been deleted! " + RESET)})
+                sys.stdout.write(RED + f"Error: Task {delete_task} not found!\n" + RESET)
         except:
-            print(f"{sys.stdout.write(RED + "Error: Invalid Input! " + RESET)}")
+            sys.stdout.write(RED + "Error: Invalid Input! " + RESET)
          
     
     
@@ -77,6 +80,6 @@ if __name__ == '__main__':
             obj_ToDo.closeApp()
         else:
             print()
-            print(f"{sys.stdout.write(RED + "Error: Invalid Input! " + RESET)}")
+            sys.stdout.write(RED + "Error: Invalid Input! " + RESET)
             
             
