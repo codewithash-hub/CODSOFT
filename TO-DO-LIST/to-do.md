@@ -10,8 +10,8 @@ A To-Do List application is a useful project that helps users manage and organiz
 * 📋 View all tasks
 
 ## 🛠️ Technologies Used
-* Python (Core logic)
-* Tkinter / Flask (For GUI or web-based version) (Optional)
-* SQLite / JSON (For data storage) (Optional)
+* Python
+* Django (web-based application)
+* SQLite / JSON (For data storage)
 
 # 📌 Usage
