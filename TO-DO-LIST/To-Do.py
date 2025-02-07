@@ -1,3 +1,9 @@
+import sys
+
+# variable to make error messages.
+RED = "\033[31m"
+RESET = "\033[0m"
+
 class TODO:
     def __init__(self):
         self.todos = []
@@ -12,7 +18,9 @@ class TODO:
         pass
     
     def closeApp(self):
+        print("___________BYE___________")
         exit()
+        
 
 if __name__ == '__main__':
     # Creating an object for a class TODO
@@ -38,12 +46,13 @@ if __name__ == '__main__':
         if choice == 1:
             obj_ToDo.appendTask()
         elif choice == 2:
-            obj_ToDo.popTask()
+            obj_ToDo.viewTask()
         elif choice == 3:
-            obj_ToDo.viewTasks()
+            obj_ToDo.popTask()
         elif choice == 4:
             obj_ToDo.closeApp()
         else:
-            print("Invalid input. Try again!!!")
+            print()
+            print(f"{sys.stdout.write(RED + "Error: Invalid Input! " + RESET)}")
             
-    print("____________BYE____________")
+            
