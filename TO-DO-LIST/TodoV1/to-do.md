@@ -4,15 +4,11 @@ A To-Do List application is a useful project that helps users manage and organiz
 
 ## 🎯 Features
 * ✅ Add new tasks
-* ✏️ Edit or update tasks
-* 📌 Mark tasks as completed
 * 🗑️ Delete tasks
 * 📋 View all tasks
 
 ## 🛠️ Technologies Used
 * Python
-* Django (web-based application)
-* SQLite (For data storage)
 
 # 📌 Usage
 * Run To-Do.py and follow the prompts.
