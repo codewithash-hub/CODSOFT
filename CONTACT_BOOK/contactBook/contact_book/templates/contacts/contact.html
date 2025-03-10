@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Contact List</h2>
+
+    <form method="GET" action="{% url 'search' %}" class="form-inline mb-3">
+        <input type="text" name="q" class="form-control mr-2" placeholder="Search by name or phone" value="{{ query_set }}">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phone_number }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.address }}</td>
+                <td>
+                    <a href="{% url 'edit_contact' contact.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete_contact' contact.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if not contacts %}
+    <p class="text-center">No contacts found.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -7,7 +7,7 @@ from .forms import ContactForm
 # Adding contact view
 def add_contact(request):
     if request.method == "POST":
-        form = Contact_Information(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('contact_list')
@@ -25,8 +25,9 @@ def contact_list(request):
 # Search contacts
 def search(request):
     query_set = request.GET.get('q', "")
-    contacts = Contact_Information.objects.filter(name__icontains=query_set) | Contact_Information.objects.filter(phone__icontains=query_set)
-    return render(request, 'contacts/contact.html', {'contacts': contacts, 'query_sey': query_set})
+    contacts = Contact_Information.objects.filter(name__icontains=query_set) | Contact_Information.objects.filter(phone_number__icontains=query_set)
+    return render(request, 'contacts/contact.html', {'contacts': contacts, 'query_set': query_set})
+
 
 # Edit Contact View
 def edit_contact(request, contact_id):

@@ -1,0 +1,21 @@
+body {
+    background-color: #f4f7f6;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.btn {
+    margin-right: 5px;
+}
