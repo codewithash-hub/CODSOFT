@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+</head>
+<body>
+    <h1>Contact List</h1>
+
+    <form action="{% url 'search_contacts' %}" method="get">
+        <input type="text" name="q" placeholder="Search by name or phone" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for contact in contacts %}
+            <li>
+                {{ contact.name }} - {{ contact.phone }} 
+                <a href="{% url 'edit_contact' contact.id %}">Edit</a> | 
+                <a href="{% url 'delete_contact' contact.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_contact' %}">Add New Contact</a>
+</body>
+</html>
